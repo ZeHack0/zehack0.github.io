@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Manage My Count : retour de la banque</title>
+  <style>body{font-family:system-ui,sans-serif;max-width:520px;margin:15vh auto;padding:0 16px;text-align:center;color:#222}</style>
+</head>
+<body>
+  <p>Retour vers Manage My Count…</p>
+  <p><a id="link" href="#">Clique ici si rien ne se passe</a></p>
+  <script>
+    // Enable Banking exige une URL de retour en HTTPS : cette page publique relaie
+    // le code de consentement vers l'appli qui tourne en local.
+    // Le code seul est inutilisable : il faut la clé privée de l'appli pour l'échanger.
+    var target = "http://localhost:8000/api/banks/callback" + window.location.search;
+    document.getElementById("link").href = target;
+    window.location.replace(target);
+  </script>
+</body>
+</html>
